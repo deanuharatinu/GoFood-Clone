@@ -13,11 +13,10 @@ lifecycleRuntimeKtx = "2.6.2"
 
 # Compose
 activityCompose = "1.5.1"
-composeBom = "2023.09.00"
 androidxComposeBom = "2023.09.00"
+androidxNavigationCompose = "2.7.2"
 androidxLifecycle = "2.5.1"
 runtimeTracing = "1.0.0-alpha01"
-navigation = "2.5.3"
 
 # Testing
 junit = "4.13.2"
@@ -58,3 +57,5 @@ androidx-compose-ui-test-junit = { group = "androidx.compose.ui", name = "ui-tes
 androidx-compose-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
 androidx-compose-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
 androidx-compose-material3 = { group = "androidx.compose.material3", name = "material3" }
+androidx-navigation-compose = { module = "androidx.navigation:navigation-compose", version.ref = "androidxNavigationCompose" }
+androidx-navigation-runtime-ktx = { module = "androidx.navigation:navigation-runtime-ktx", version.ref = "androidxNavigationCompose" }
