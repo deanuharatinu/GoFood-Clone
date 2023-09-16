@@ -72,10 +72,10 @@ Then the app should display home screen
 
 | Property                  | Type     |
 |---------------------------|----------|
-| `Name`                    | `Object` |
-| `Email`                   | `Object` |
-| `Password`                | `Object` |
-| `PasswordConfirmation`    | `Object` |
+| `Name`                    | `String` |
+| `Email`                   | `String` |
+| `Password`                | `String` |
+| `PasswordConfirmation`    | `String` |
 | `Address`                 | `Object` |
 
 ##### Address
