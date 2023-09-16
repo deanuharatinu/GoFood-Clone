@@ -105,3 +105,6 @@ Request Body
     "phoneNumber": "1"
 }
 ```
+
+### Flowchart Diagram
+[Register Flowchart](https://github.com/deanuharatinu/GoFood-Clone/assets/24354414/d5014e93-3e43-4ac0-b6c9-357b76aa7f14)
