@@ -31,7 +31,7 @@ fun ButtonComponent(
 
 @Composable
 @Preview(showBackground = true)
-fun ButtonComponentPreview() {
+private fun ButtonComponentPreview() {
   GoFoodTheme {
     ButtonComponent(
       buttonText = "Lanjut",
@@ -57,7 +57,7 @@ fun ButtonOutlinedComponent(
 
 @Composable
 @Preview(showBackground = true)
-fun ButtonOutlinedComponentPreview() {
+private fun ButtonOutlinedComponentPreview() {
   GoFoodTheme {
     ButtonOutlinedComponent(
       buttonText = "Buat Akun",
