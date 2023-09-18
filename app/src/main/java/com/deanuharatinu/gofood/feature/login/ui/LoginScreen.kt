@@ -24,6 +24,7 @@ import com.deanuharatinu.gofood.ui.theme.GoFoodTheme
 @Composable
 fun LoginScreen(
   modifier: Modifier = Modifier,
+  onRegisterClick: () -> Unit,
 ) {
   Scaffold(
     modifier = modifier,
@@ -66,11 +67,11 @@ fun LoginScreen(
       ) {
         ButtonComponent(
           buttonText = stringResource(id = R.string.login_login),
-          onClick = {}
+          onClick = {},
         )
         ButtonOutlinedComponent(
           buttonText = stringResource(id = R.string.login_create_account),
-          onClick = {}
+          onClick = onRegisterClick,
         )
       }
     }
@@ -79,8 +80,8 @@ fun LoginScreen(
 
 @Preview(showSystemUi = true, device = Devices.PIXEL_4)
 @Composable
-fun LoginScreenPreview() {
+private fun LoginScreenPreview() {
   GoFoodTheme {
-    LoginScreen()
+    LoginScreen {}
   }
 }

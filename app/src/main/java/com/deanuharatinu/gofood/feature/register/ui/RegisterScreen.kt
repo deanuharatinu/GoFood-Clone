@@ -23,7 +23,8 @@ import com.deanuharatinu.gofood.ui.theme.GoFoodTheme
 @Composable
 fun RegisterScreen(
   modifier: Modifier = Modifier,
-  onNavClick: (() -> Unit)? = null,
+  onNavClick: () -> Unit,
+  onButtonClick: () -> Unit,
 ) {
   Scaffold(
     modifier = modifier,
@@ -78,7 +79,7 @@ fun RegisterScreen(
       ButtonComponent(
         modifier = Modifier.padding(16.dp),
         buttonText = "Lanjut",
-        onClick = {}
+        onClick = onButtonClick,
       )
     }
   }
@@ -89,7 +90,8 @@ fun RegisterScreen(
 private fun RegisterScreenPreview() {
   GoFoodTheme {
     RegisterScreen(
-      onNavClick = {}
+      onNavClick = {},
+      onButtonClick = {},
     )
   }
 }

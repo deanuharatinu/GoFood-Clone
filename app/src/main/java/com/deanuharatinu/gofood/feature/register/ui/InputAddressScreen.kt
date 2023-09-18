@@ -22,7 +22,7 @@ import com.deanuharatinu.gofood.ui.theme.GoFoodTheme
 @Composable
 fun InputAddressScreen(
   modifier: Modifier = Modifier,
-  onNavClick: (() -> Unit)? = null,
+  onNavClick: () -> Unit,
 ) {
   Scaffold(
     modifier = modifier,
