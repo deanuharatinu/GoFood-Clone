@@ -97,7 +97,7 @@ fun InputAddressScreen(
 private fun InputAddressScreenPreview() {
   GoFoodTheme {
     InputAddressScreen(
-      dropDownList = listOf("Americano", "Cappuccino", "Espresso", "Latte", "Mocha"),
+      dropDownList = listOf("Jakarta", "Bandung", "Semarang", "Surabaya", "Malang"),
       onNavClick = {}
     )
   }
