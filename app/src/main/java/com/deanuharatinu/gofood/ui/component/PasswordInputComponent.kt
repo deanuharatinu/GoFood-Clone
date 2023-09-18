@@ -1,5 +1,6 @@
 package com.deanuharatinu.gofood.ui.component
 
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -7,6 +8,8 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.text.BasicTextField
+import androidx.compose.foundation.text.KeyboardActions
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Visibility
 import androidx.compose.material.icons.filled.VisibilityOff
@@ -20,6 +23,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
@@ -32,40 +36,45 @@ import com.deanuharatinu.gofood.ui.theme.GoFoodTheme
 @Composable
 fun PasswordInputComponent(
   modifier: Modifier = Modifier,
-  label: String,
-  placeholder: String,
+  label: String = "Label",
+  placeholder: String = "Placeholder",
   isShowPassword: Boolean = false,
+  keyboardOptions: KeyboardOptions = KeyboardOptions.Default,
 ) {
   val textValue = remember { mutableStateOf("") }
 
   Column(modifier = modifier) {
     Text(text = label, fontSize = 12.sp)
-    BottomOutlineTextField(
+    PasswordOutlineTextField(
       placeholder = placeholder,
       value = textValue.value,
       onValueChange = { textValue.value = it },
       initialIsShowPassword = isShowPassword,
+      keyboardOptions = keyboardOptions,
     )
   }
 }
 
 @Composable
-fun BottomOutlineTextField(
+fun PasswordOutlineTextField(
+  modifier: Modifier = Modifier,
   placeholder: String,
   value: String,
   onValueChange: (String) -> Unit,
   initialIsShowPassword: Boolean = false,
+  keyboardOptions: KeyboardOptions,
 ) {
+  val focusManager = LocalFocusManager.current
   val isShowPassword = remember { mutableStateOf(initialIsShowPassword) }
   val trailingIcon = remember { mutableStateOf(Icons.Filled.VisibilityOff) }
 
   BasicTextField(
-    modifier = Modifier
+    modifier = modifier
       .fillMaxWidth(),
     value = value,
     onValueChange = onValueChange,
     textStyle = TextStyle(
-      color = Color.Gray,
+      color = Color.Black,
       fontSize = 16.sp,
       letterSpacing = if (!isShowPassword.value) 3.sp else TextUnit.Unspecified
     ),
@@ -77,18 +86,19 @@ fun BottomOutlineTextField(
             .padding(top = 6.dp, bottom = 6.dp, end = 6.dp),
           verticalAlignment = Alignment.CenterVertically
         ) {
-          if (value.isEmpty()) {
-            Text(
-              text = placeholder,
-              color = Color.Gray,
-              fontSize = 16.sp
-            )
-          } else {
+
+          Box {
+            if (value.isEmpty()) {
+              Text(
+                text = placeholder,
+                color = Color.Gray,
+                fontSize = 16.sp
+              )
+            }
             innerTextField()
           }
 
           Spacer(modifier = Modifier.weight(1f))
-
           IconButton(
             modifier = Modifier
               .size(16.dp),
@@ -110,7 +120,13 @@ fun BottomOutlineTextField(
       PasswordVisualTransformation()
     },
     singleLine = true,
-    maxLines = 1
+    maxLines = 1,
+    keyboardActions = KeyboardActions(
+      onDone = {
+        focusManager.clearFocus()
+      }
+    ),
+    keyboardOptions = keyboardOptions,
   )
 }
 
