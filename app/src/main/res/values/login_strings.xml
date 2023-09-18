@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="login_title">Login</string>
+    <string name="login_sub_title">Kalo udah punya akun langsung masuk aja gan.</string>
+    <string name="login_login">Login</string>
+    <string name="login_create_account">Buat akun</string>
+    <string name="login_email">Email</string>
+    <string name="login_email_placeholder">Cth: nama@email.com</string>
+    <string name="login_password">Kata Sandi</string>
+    <string name="login_password_placeholder">Berupa huruf/angka</string>
+</resources>
