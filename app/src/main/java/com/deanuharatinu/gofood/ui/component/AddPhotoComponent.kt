@@ -51,14 +51,14 @@ fun AddPhotoComponent(
           cornerRadius = CornerRadius(60.dp.toPx())
         )
       }
-      .padding(10.dp)
-      .clickable { onclick?.invoke() },
+      .padding(10.dp),
   ) {
     Box(
       modifier = Modifier
         .size(100.dp)
         .clip(CircleShape)
-        .background(Grey2525),
+        .background(Grey2525)
+        .clickable { onclick?.invoke() },
       contentAlignment = Alignment.Center
     ) {
       Text(

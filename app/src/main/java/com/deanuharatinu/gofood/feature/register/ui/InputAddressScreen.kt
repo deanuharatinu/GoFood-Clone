@@ -8,11 +8,13 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Devices
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.deanuharatinu.gofood.R
 import com.deanuharatinu.gofood.ui.component.AppBarComponent
 import com.deanuharatinu.gofood.ui.component.ButtonComponent
 import com.deanuharatinu.gofood.ui.component.DropDownComponent
@@ -22,14 +24,15 @@ import com.deanuharatinu.gofood.ui.theme.GoFoodTheme
 @Composable
 fun InputAddressScreen(
   modifier: Modifier = Modifier,
+  dropDownList: List<String>,
   onNavClick: () -> Unit,
 ) {
   Scaffold(
     modifier = modifier,
     topBar = {
       AppBarComponent(
-        title = "Alamat",
-        subTitle = "Lengkapin alamat kamu buat lanjut daftar akunnya",
+        title = stringResource(id = R.string.register_address_title),
+        subTitle = stringResource(id = R.string.register_address_sub_title),
         onNavClick = onNavClick,
       )
     }
@@ -45,8 +48,8 @@ fun InputAddressScreen(
         modifier = Modifier.padding(horizontal = 16.dp)
       ) {
         TextFieldComponent(
-          label = "Nomor HP",
-          placeholder = "08xxxxxxxxx",
+          label = stringResource(id = R.string.register_phone_number),
+          placeholder = stringResource(id = R.string.register_phone_number_placeholder),
           keyboardOptions = KeyboardOptions.Default.copy(
             keyboardType = KeyboardType.Number,
             imeAction = ImeAction.Next
@@ -54,8 +57,8 @@ fun InputAddressScreen(
         )
         Spacer(modifier = Modifier.padding(vertical = 8.dp))
         TextFieldComponent(
-          label = "Alamat",
-          placeholder = "Alamat kamu",
+          label = stringResource(id = R.string.register_address),
+          placeholder = stringResource(id = R.string.register_address_placeholder),
           keyboardOptions = KeyboardOptions.Default.copy(
             keyboardType = KeyboardType.Text,
             imeAction = ImeAction.Next
@@ -63,8 +66,8 @@ fun InputAddressScreen(
         )
         Spacer(modifier = Modifier.padding(vertical = 8.dp))
         TextFieldComponent(
-          label = "Nomor Rumah",
-          placeholder = "Nomor Rumah kamu",
+          label = stringResource(id = R.string.register_house_number),
+          placeholder = stringResource(id = R.string.register_house_number_placeholder),
           keyboardOptions = KeyboardOptions.Default.copy(
             keyboardType = KeyboardType.Number,
             imeAction = ImeAction.Done
@@ -72,9 +75,9 @@ fun InputAddressScreen(
         )
         Spacer(modifier = Modifier.padding(vertical = 8.dp))
         DropDownComponent(
-          label = "Kota",
-          placeholder = "Pilih kota",
-          dropDownList = listOf("Americano", "Cappuccino", "Espresso", "Latte", "Mocha")
+          label = stringResource(id = R.string.register_city),
+          placeholder = stringResource(id = R.string.register_city_placeholder),
+          dropDownList = dropDownList,
         )
       }
 
@@ -82,7 +85,7 @@ fun InputAddressScreen(
 
       ButtonComponent(
         modifier = Modifier.padding(16.dp),
-        buttonText = "Lanjut",
+        buttonText = stringResource(id = R.string.register_continue),
         onClick = {}
       )
     }
@@ -94,6 +97,7 @@ fun InputAddressScreen(
 private fun InputAddressScreenPreview() {
   GoFoodTheme {
     InputAddressScreen(
+      dropDownList = listOf("Americano", "Cappuccino", "Espresso", "Latte", "Mocha"),
       onNavClick = {}
     )
   }

@@ -8,11 +8,13 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Devices
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.deanuharatinu.gofood.R
 import com.deanuharatinu.gofood.ui.component.AddPhotoComponent
 import com.deanuharatinu.gofood.ui.component.AppBarComponent
 import com.deanuharatinu.gofood.ui.component.ButtonComponent
@@ -30,8 +32,8 @@ fun RegisterScreen(
     modifier = modifier,
     topBar = {
       AppBarComponent(
-        title = "Daftar",
-        subTitle = "Buat akun dulu baru cekot makanan",
+        title = stringResource(id = R.string.register_title),
+        subTitle = stringResource(id = R.string.register_sub_title),
         onNavClick = onNavClick,
       )
     }
@@ -48,8 +50,8 @@ fun RegisterScreen(
       Spacer(modifier = Modifier.weight(0.2f))
       Column(modifier = Modifier.padding(horizontal = 16.dp)) {
         TextFieldComponent(
-          label = "Nama",
-          placeholder = "Huruf alfabet, tanpa emoji/simbol",
+          label = stringResource(id = R.string.register_name),
+          placeholder = stringResource(id = R.string.register_name_placeholder),
           keyboardOptions = KeyboardOptions.Default.copy(
             keyboardType = KeyboardType.Text,
             imeAction = ImeAction.Next
@@ -57,8 +59,8 @@ fun RegisterScreen(
         )
         Spacer(modifier = Modifier.padding(vertical = 8.dp))
         TextFieldComponent(
-          label = "Email",
-          placeholder = "nama@email.com",
+          label = stringResource(id = R.string.register_email),
+          placeholder = stringResource(id = R.string.register_email_placeholder),
           keyboardOptions = KeyboardOptions.Default.copy(
             keyboardType = KeyboardType.Email,
             imeAction = ImeAction.Next
@@ -66,8 +68,8 @@ fun RegisterScreen(
         )
         Spacer(modifier = Modifier.padding(vertical = 8.dp))
         PasswordInputComponent(
-          label = "Kata Sandi",
-          placeholder = "Berupa huruf/angka",
+          label = stringResource(id = R.string.register_password),
+          placeholder = stringResource(id = R.string.register_password_placeholder),
           keyboardOptions = KeyboardOptions.Default.copy(
             keyboardType = KeyboardType.Password,
             imeAction = ImeAction.Done
@@ -78,7 +80,7 @@ fun RegisterScreen(
 
       ButtonComponent(
         modifier = Modifier.padding(16.dp),
-        buttonText = "Lanjut",
+        buttonText = stringResource(id = R.string.register_continue),
         onClick = onButtonClick,
       )
     }

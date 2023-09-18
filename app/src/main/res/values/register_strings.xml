@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--  Register  -->
+    <string name="register_title">Daftar</string>
+    <string name="register_sub_title">Buat akun dulu baru cekot makanan</string>
+    <string name="register_name">Nama</string>
+    <string name="register_name_placeholder">Huruf alfabet, tanpa emoji/simbol</string>
+    <string name="register_email">Email</string>
+    <string name="register_email_placeholder">Cth: nama@email.com</string>
+    <string name="register_password">Kata Sandi</string>
+    <string name="register_password_placeholder">Berupa huruf/angka</string>
+    <string name="register_continue">Lanjut</string>
+
+    <!--  Register/address  -->
+    <string name="register_address_title">Alamat</string>
+    <string name="register_address_sub_title">Lengkapin alamat kamu buat lanjut daftar akunnya</string>
+    <string name="register_phone_number">Nomor HP</string>
+    <string name="register_phone_number_placeholder">08xxxxxxxxx</string>
+    <string name="register_address">Alamat</string>
+    <string name="register_address_placeholder">Alamat kamu</string>
+    <string name="register_house_number">Nomor Rumah</string>
+    <string name="register_house_number_placeholder">Nomor rumah kamu</string>
+    <string name="register_city">Kota</string>
+    <string name="register_city_placeholder">Pilih kota</string>
+</resources>
