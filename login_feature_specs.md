@@ -69,7 +69,27 @@ Then the app should display the home screen
 ## Model Specs
 
 ### UserAccount
+| Property                  | Type     |
+|---------------------------|----------|
+| `AccessToken`             | `String` |
+| `TokenType`               | `String` |
+| `User`                    | `Object` |
 
+##### User
+| Property                  | Type     |
+|---------------------------|----------|
+| `Id`                      | `Integer`|
+| `Name`                    | `String` |
+| `Email`                   | `String` |
+| `Roles`                   | `String` |
+| `Address`                 | `String` |
+| `HouseNumber`             | `String` |
+| `PhoneNumber`             | `String` |
+| `City`                    | `String` |
+| `CreatedAt`               | `Long`   |
+| `UpdatedAt`               | `Long`   |
+| `ProfilePhotoPath`        | `String` |
+| `ProfilePhotoUrl`         | `String` |
 
 ### Payload contract
 
