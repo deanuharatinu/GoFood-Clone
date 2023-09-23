@@ -6,6 +6,8 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.ImeAction
@@ -14,6 +16,7 @@ import androidx.compose.ui.tooling.preview.Devices
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.deanuharatinu.gofood.R
+import com.deanuharatinu.gofood.feature.login.presentation.LoginViewModelState
 import com.deanuharatinu.gofood.ui.component.AppBarComponent
 import com.deanuharatinu.gofood.ui.component.ButtonComponent
 import com.deanuharatinu.gofood.ui.component.ButtonOutlinedComponent
@@ -24,8 +27,13 @@ import com.deanuharatinu.gofood.ui.theme.GoFoodTheme
 @Composable
 fun LoginScreen(
   modifier: Modifier = Modifier,
+  loginUiState: LoginViewModelState = LoginViewModelState(),
   onRegisterClick: () -> Unit,
+  onLoginClick: (email: String, password: String) -> Unit,
 ) {
+  val emailState = remember { mutableStateOf("") }
+  val passwordState = remember { mutableStateOf("") }
+
   Scaffold(
     modifier = modifier,
     topBar = {
@@ -47,7 +55,8 @@ fun LoginScreen(
           keyboardOptions = KeyboardOptions.Default.copy(
             keyboardType = KeyboardType.Email,
             imeAction = ImeAction.Next
-          )
+          ),
+          onValueChange = { emailState.value = it }
         )
         Spacer(modifier = Modifier.padding(vertical = 8.dp))
         PasswordInputComponent(
@@ -56,7 +65,8 @@ fun LoginScreen(
           keyboardOptions = KeyboardOptions.Default.copy(
             keyboardType = KeyboardType.Password,
             imeAction = ImeAction.Done
-          )
+          ),
+          onValueChange = { passwordState.value = it }
         )
       }
 
@@ -67,7 +77,7 @@ fun LoginScreen(
       ) {
         ButtonComponent(
           buttonText = stringResource(id = R.string.login_login),
-          onClick = {},
+          onClick = { onLoginClick(emailState.value, passwordState.value) },
         )
         ButtonOutlinedComponent(
           buttonText = stringResource(id = R.string.login_create_account),
@@ -82,6 +92,8 @@ fun LoginScreen(
 @Composable
 private fun LoginScreenPreview() {
   GoFoodTheme {
-    LoginScreen {}
+    LoginScreen(
+      onRegisterClick = {},
+    ) { _, _ -> }
   }
 }
