@@ -55,7 +55,8 @@ fun RegisterScreen(
           keyboardOptions = KeyboardOptions.Default.copy(
             keyboardType = KeyboardType.Text,
             imeAction = ImeAction.Next
-          )
+          ),
+          onValueChange = {}
         )
         Spacer(modifier = Modifier.padding(vertical = 8.dp))
         TextFieldComponent(
@@ -64,7 +65,8 @@ fun RegisterScreen(
           keyboardOptions = KeyboardOptions.Default.copy(
             keyboardType = KeyboardType.Email,
             imeAction = ImeAction.Next
-          )
+          ),
+          onValueChange = {}
         )
         Spacer(modifier = Modifier.padding(vertical = 8.dp))
         PasswordInputComponent(
@@ -73,7 +75,8 @@ fun RegisterScreen(
           keyboardOptions = KeyboardOptions.Default.copy(
             keyboardType = KeyboardType.Password,
             imeAction = ImeAction.Done
-          )
+          ),
+          onValueChange = {}
         )
       }
       Spacer(modifier = Modifier.weight(1f))
