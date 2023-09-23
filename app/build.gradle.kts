@@ -35,6 +35,7 @@ android {
   }
   buildFeatures {
     compose = true
+    buildConfig = true
   }
   composeOptions {
     kotlinCompilerExtensionVersion = "1.5.3"
@@ -61,6 +62,14 @@ dependencies {
   implementation(libs.androidx.navigation.compose)
   implementation(libs.androidx.navigation.runtime.ktx)
   implementation(libs.androidx.compose.material.icons)
+  implementation(libs.androidx.lifecycle.viewmodel.compose)
+  implementation(libs.androidx.lifecycle.runtime.compose)
+  implementation(libs.network.retrofit)
+  implementation(libs.network.moshi.kotlin)
+  implementation(libs.network.converter.moshi)
+  implementation(libs.network.okhttp)
+  implementation(libs.network.logging.interceptor)
+
   androidTestImplementation(composeBom)
   androidTestImplementation(libs.androidx.compose.ui.test.junit)
   androidTestImplementation(libs.androidx.compose.ui.tooling)

@@ -26,7 +26,7 @@ espressoCore = "3.5.1"
 # Http
 retrofit = "2.9.0"
 moshi = "1.14.0"
-loggingInterceptor = "4.10.0"
+loggingInterceptor = "4.11.0"
 
 # Image Loader
 coil = "2.4.0"
@@ -60,3 +60,12 @@ androidx-compose-material3 = { group = "androidx.compose.material3", name = "mat
 androidx-navigation-compose = { module = "androidx.navigation:navigation-compose", version.ref = "androidxNavigationCompose" }
 androidx-navigation-runtime-ktx = { module = "androidx.navigation:navigation-runtime-ktx", version.ref = "androidxNavigationCompose" }
 androidx-compose-material-icons = { group = "androidx.compose.material", name = "material-icons-extended" }
+androidx-lifecycle-viewmodel-compose = { module = "androidx.lifecycle:lifecycle-viewmodel-compose" }
+androidx-lifecycle-runtime-compose = { module = "androidx.lifecycle:lifecycle-runtime-compose" }
+
+# Network
+network-retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
+network-moshi-kotlin = { module = "com.squareup.moshi:moshi-kotlin", version.ref = "moshi" }
+network-converter-moshi = { module = "com.squareup.retrofit2:converter-moshi", version.ref = "retrofit" }
+network-okhttp = { module = "com.squareup.okhttp3:okhttp" }
+network-logging-interceptor = { module = "com.squareup.okhttp3:logging-interceptor", version.ref = "loggingInterceptor" }
