@@ -27,6 +27,7 @@ fun TextFieldComponent(
   label: String = "Label",
   placeholder: String = "Placeholder",
   keyboardOptions: KeyboardOptions = KeyboardOptions.Default,
+  onValueChange: (String) -> Unit,
 ) {
   val textValue = remember { mutableStateOf("") }
 
@@ -35,7 +36,10 @@ fun TextFieldComponent(
     OutlineTextField(
       placeholder = placeholder,
       value = textValue.value,
-      onValueChange = { textValue.value = it },
+      onValueChange = {
+        textValue.value = it
+        onValueChange.invoke(it)
+      },
       keyboardOptions = keyboardOptions,
     )
   }
@@ -97,7 +101,8 @@ private fun TextFieldComponentPreview() {
   GoFoodTheme {
     TextFieldComponent(
       label = "email",
-      placeholder = "Masukan email"
+      placeholder = "Masukan email",
+      onValueChange = {}
     )
   }
 }
