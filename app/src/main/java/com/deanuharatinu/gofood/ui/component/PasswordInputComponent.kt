@@ -40,6 +40,7 @@ fun PasswordInputComponent(
   placeholder: String = "Placeholder",
   isShowPassword: Boolean = false,
   keyboardOptions: KeyboardOptions = KeyboardOptions.Default,
+  onValueChange: (String) -> Unit,
 ) {
   val textValue = remember { mutableStateOf("") }
 
@@ -48,7 +49,10 @@ fun PasswordInputComponent(
     PasswordOutlineTextField(
       placeholder = placeholder,
       value = textValue.value,
-      onValueChange = { textValue.value = it },
+      onValueChange = {
+        textValue.value = it
+        onValueChange.invoke(it)
+      },
       initialIsShowPassword = isShowPassword,
       keyboardOptions = keyboardOptions,
     )
@@ -137,7 +141,8 @@ private fun PasswordInputComponentPreview() {
   GoFoodTheme {
     PasswordInputComponent(
       label = "Kata Sandi",
-      placeholder = "Berupa huruf / angka"
+      placeholder = "Berupa huruf / angka",
+      onValueChange = {}
     )
   }
 }
