@@ -53,7 +53,8 @@ fun InputAddressScreen(
           keyboardOptions = KeyboardOptions.Default.copy(
             keyboardType = KeyboardType.Number,
             imeAction = ImeAction.Next
-          )
+          ),
+          onValueChange = {}
         )
         Spacer(modifier = Modifier.padding(vertical = 8.dp))
         TextFieldComponent(
@@ -62,7 +63,8 @@ fun InputAddressScreen(
           keyboardOptions = KeyboardOptions.Default.copy(
             keyboardType = KeyboardType.Text,
             imeAction = ImeAction.Next
-          )
+          ),
+          onValueChange = {}
         )
         Spacer(modifier = Modifier.padding(vertical = 8.dp))
         TextFieldComponent(
@@ -71,7 +73,8 @@ fun InputAddressScreen(
           keyboardOptions = KeyboardOptions.Default.copy(
             keyboardType = KeyboardType.Number,
             imeAction = ImeAction.Done
-          )
+          ),
+          onValueChange = {}
         )
         Spacer(modifier = Modifier.padding(vertical = 8.dp))
         DropDownComponent(
