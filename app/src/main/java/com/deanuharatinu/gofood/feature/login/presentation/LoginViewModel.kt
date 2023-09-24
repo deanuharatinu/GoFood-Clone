@@ -12,6 +12,7 @@ import kotlinx.coroutines.withContext
 
 data class LoginViewModelState(
   val isLoading: Boolean = false,
+  val isLoginSuccess: Boolean? = null,
   val failed: String = ""
 )
 
@@ -29,12 +30,16 @@ class LoginViewModel constructor(
       withContext(Dispatchers.Main) {
         when (result) {
           is Resource.Success -> {
-            _uiState.value = _uiState.value.copy(isLoading = false)
+            _uiState.value = _uiState.value.copy(
+              isLoading = false,
+              isLoginSuccess = true,
+            )
           }
 
           is Resource.Error -> {
             _uiState.value = _uiState.value.copy(
               isLoading = false,
+              isLoginSuccess = false,
               failed = result.message
             )
           }
