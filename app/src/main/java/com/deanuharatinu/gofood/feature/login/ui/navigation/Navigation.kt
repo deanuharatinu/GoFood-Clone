@@ -2,6 +2,7 @@ package com.deanuharatinu.gofood.feature.login.ui.navigation
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.ui.platform.LocalContext
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavGraphBuilder
@@ -22,8 +23,10 @@ fun NavGraphBuilder.loginGraphRoute(
     startDestination = LOGIN,
   ) {
     composable(LOGIN) {
+      val context = LocalContext.current
+
       LoginScreenRoot(
-        viewModel = viewModel(factory = ViewModelFactory.provideLoginViewModel()),
+        viewModel = viewModel(factory = ViewModelFactory.provideLoginViewModel(context)),
         onRegisterClick = onRegisterClick,
       )
     }
