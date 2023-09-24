@@ -24,12 +24,13 @@ import com.deanuharatinu.gofood.ui.theme.GoFoodTheme
 @Composable
 fun TextFieldComponent(
   modifier: Modifier = Modifier,
+  value: String = "",
   label: String = "Label",
   placeholder: String = "Placeholder",
   keyboardOptions: KeyboardOptions = KeyboardOptions.Default,
   onValueChange: (String) -> Unit,
 ) {
-  val textValue = remember { mutableStateOf("") }
+  val textValue = remember { mutableStateOf(value) }
 
   Column(modifier = modifier) {
     Text(text = label, fontSize = 12.sp)
