@@ -4,11 +4,7 @@ data class UserAccount(
   val accessToken: String,
   val tokenType: String,
   val user: User,
-) {
-//  fun isEmailValid(email: String): Boolean {
-//    return email.matches(EMAIL_REGEX.toRegex())
-//  }
-}
+)
 
 data class User(
   val id: Int,
