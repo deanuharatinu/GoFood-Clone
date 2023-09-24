@@ -11,10 +11,8 @@ class LoginHttpClientImpl constructor(
   override suspend fun login(loginRequest: LoginRequest): HttpClientResult<LoginResponse> {
     return try {
       val result = loginService.login(loginRequest)
-      Log.d("TAG", "login: ${result.meta?.message}")
       HttpClientResult.Success(result)
     } catch (throwable: Throwable) {
-      Log.d("TAG", "login: ${throwable.message}")
       HttpClientResult.Failure(throwable)
     }
   }
