@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
 import com.deanuharatinu.gofood.feature.login.presentation.LoginViewModel
+import com.deanuharatinu.gofood.feature.register.presentation.RegisterViewModel
 
 class ViewModelFactory {
   companion object {
@@ -15,6 +16,16 @@ class ViewModelFactory {
         .createLoginAccountDecorator(loginAccount, saveUserAccount)
       initializer {
         LoginViewModel(decoratedLoginAccount)
+      }
+    }
+
+    fun provideRegisterViewModel(context: Context): ViewModelProvider.Factory = viewModelFactory {
+      val registerAccount = UseCaseFactory.createRegisterUserAccount()
+      val saveUserAccount = UseCaseFactory.createSaveUserAccount(context)
+      val decoratedRegisterAccount = DecoratorFactory
+        .createRegisterAccountDecorator(registerAccount, saveUserAccount)
+      initializer {
+        RegisterViewModel(decoratedRegisterAccount)
       }
     }
   }
