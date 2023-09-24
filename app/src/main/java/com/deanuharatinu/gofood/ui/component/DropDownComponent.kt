@@ -39,12 +39,13 @@ fun DropDownComponent(
   modifier: Modifier = Modifier,
   label: String = "Label",
   placeholder: String = "Placeholder",
+  value: String = "",
   dropDownList: List<String>,
   selectedItem: ((String) -> Unit)? = null,
 ) {
   val context = LocalContext.current
   var expanded by remember { mutableStateOf(false) }
-  var selectedText by remember { mutableStateOf("") }
+  var selectedText by remember { mutableStateOf(value) }
 
   Column(
     modifier = modifier.fillMaxWidth()
