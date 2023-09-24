@@ -5,7 +5,12 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.SnackbarHost
+import androidx.compose.material3.SnackbarHostState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
@@ -15,6 +20,8 @@ import androidx.compose.ui.tooling.preview.Devices
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.deanuharatinu.gofood.R
+import com.deanuharatinu.gofood.feature.register.presentation.RegisterViewModelState
+import com.deanuharatinu.gofood.feature.register.ui.model.RegisterDataState
 import com.deanuharatinu.gofood.ui.component.AddPhotoComponent
 import com.deanuharatinu.gofood.ui.component.AppBarComponent
 import com.deanuharatinu.gofood.ui.component.ButtonComponent
@@ -25,9 +32,23 @@ import com.deanuharatinu.gofood.ui.theme.GoFoodTheme
 @Composable
 fun RegisterScreen(
   modifier: Modifier = Modifier,
+  registerUiState: RegisterViewModelState = RegisterViewModelState(),
+  snackbarHostState: SnackbarHostState = SnackbarHostState(),
   onNavClick: () -> Unit,
-  onButtonClick: () -> Unit,
+  onButtonClick: (RegisterDataState) -> Unit,
 ) {
+  val registerDataState = remember { mutableStateOf(registerUiState.registerDataState) }
+
+  registerUiState.isRegisterSuccess?.let { isSuccess ->
+    if (!isSuccess) {
+      LaunchedEffect(snackbarHostState) {
+        snackbarHostState.showSnackbar(
+          message = registerUiState.failed,
+        )
+      }
+    }
+  }
+
   Scaffold(
     modifier = modifier,
     topBar = {
@@ -36,6 +57,9 @@ fun RegisterScreen(
         subTitle = stringResource(id = R.string.register_sub_title),
         onNavClick = onNavClick,
       )
+    },
+    snackbarHost = {
+      SnackbarHost(hostState = snackbarHostState)
     }
   ) { innerPadding ->
     Column(
@@ -56,7 +80,10 @@ fun RegisterScreen(
             keyboardType = KeyboardType.Text,
             imeAction = ImeAction.Next
           ),
-          onValueChange = {}
+          onValueChange = {
+            registerDataState.value = registerDataState.value.copy(name = it)
+          },
+          value = registerDataState.value.name,
         )
         Spacer(modifier = Modifier.padding(vertical = 8.dp))
         TextFieldComponent(
@@ -66,7 +93,10 @@ fun RegisterScreen(
             keyboardType = KeyboardType.Email,
             imeAction = ImeAction.Next
           ),
-          onValueChange = {}
+          onValueChange = {
+            registerDataState.value = registerDataState.value.copy(email = it)
+          },
+          value = registerDataState.value.email
         )
         Spacer(modifier = Modifier.padding(vertical = 8.dp))
         PasswordInputComponent(
@@ -76,7 +106,13 @@ fun RegisterScreen(
             keyboardType = KeyboardType.Password,
             imeAction = ImeAction.Done
           ),
-          onValueChange = {}
+          onValueChange = {
+            registerDataState.value = registerDataState.value.copy(
+              password = it,
+              passwordConfirmation = it
+            )
+          },
+          value = registerDataState.value.password,
         )
       }
       Spacer(modifier = Modifier.weight(1f))
@@ -84,7 +120,7 @@ fun RegisterScreen(
       ButtonComponent(
         modifier = Modifier.padding(16.dp),
         buttonText = stringResource(id = R.string.register_continue),
-        onClick = onButtonClick,
+        onClick = { onButtonClick(registerDataState.value) },
       )
     }
   }
