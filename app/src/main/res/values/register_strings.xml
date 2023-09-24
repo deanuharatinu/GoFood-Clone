@@ -22,4 +22,5 @@
     <string name="register_house_number_placeholder">Nomor rumah kamu</string>
     <string name="register_city">Kota</string>
     <string name="register_city_placeholder">Pilih kota</string>
+    <string name="register_register_now">Daftar Sekarang</string>
 </resources>
