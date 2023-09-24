@@ -14,14 +14,14 @@ class LoginAccountRemoteUseCase constructor(
   override suspend fun loginAccount(email: String, password: String): Resource<UserAccount> {
     val loginRequest = LoginRequest(email, password)
     return when (val result = loginHttpClient.login(loginRequest)) {
-      is HttpClientResult.Failure -> {
-        val errorMessage = result.throwable.message
-        Resource.Error(errorMessage.toString())
-      }
-
       is HttpClientResult.Success -> {
         val successData = LoginResponse.toDomain(result.root)
         Resource.Success(successData)
+      }
+
+      is HttpClientResult.Failure -> {
+        val errorMessage = result.throwable.message
+        Resource.Error(errorMessage.toString())
       }
     }
   }
