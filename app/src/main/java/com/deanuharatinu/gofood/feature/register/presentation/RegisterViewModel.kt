@@ -2,7 +2,7 @@ package com.deanuharatinu.gofood.feature.register.presentation
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.deanuharatinu.gofood.core.domain.Resource
+import com.deanuharatinu.common.domain.Resource
 import com.deanuharatinu.gofood.feature.register.domain.usecases.RegisterAccount
 import com.deanuharatinu.gofood.feature.register.ui.model.RegisterDataState
 import kotlinx.coroutines.Dispatchers

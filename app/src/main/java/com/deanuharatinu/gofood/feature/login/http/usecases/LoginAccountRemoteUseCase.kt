@@ -1,8 +1,8 @@
 package com.deanuharatinu.gofood.feature.login.http.usecases
 
-import com.deanuharatinu.gofood.core.domain.Resource
-import com.deanuharatinu.gofood.core.domain.model.UserAccount
-import com.deanuharatinu.gofood.core.http.HttpClientResult
+import com.deanuharatinu.common.domain.Resource
+import com.deanuharatinu.common.domain.model.UserAccount
+import com.deanuharatinu.common.http.HttpClientResult
 import com.deanuharatinu.gofood.feature.login.domain.usecases.LoginAccount
 import com.deanuharatinu.gofood.feature.login.http.LoginHttpClient
 import com.deanuharatinu.gofood.feature.login.http.model.LoginRequest

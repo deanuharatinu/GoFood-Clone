@@ -1,0 +1,16 @@
+dependencies {
+    // Core
+    implementation(libs.androidx.ktx)
+    implementation(libs.jackson.module.kotlin)
+
+    // Test
+    testImplementation(libs.junit)
+    androidTestImplementation(libs.androidx.junit)
+
+    // Network
+    implementation(libs.network.retrofit)
+    implementation(libs.network.moshi.kotlin)
+    implementation(libs.network.converter.moshi)
+    implementation(libs.network.okhttp)
+    implementation(libs.network.logging.interceptor)
+}

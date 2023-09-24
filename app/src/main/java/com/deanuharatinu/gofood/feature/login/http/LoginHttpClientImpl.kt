@@ -1,7 +1,6 @@
 package com.deanuharatinu.gofood.feature.login.http
 
-import android.util.Log
-import com.deanuharatinu.gofood.core.http.HttpClientResult
+import com.deanuharatinu.common.http.HttpClientResult
 import com.deanuharatinu.gofood.feature.login.http.model.LoginRequest
 import com.deanuharatinu.gofood.feature.login.http.model.LoginResponse
 

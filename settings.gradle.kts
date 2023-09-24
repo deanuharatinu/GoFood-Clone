@@ -15,4 +15,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "GoFood"
 include(":app")
- 
+include(":common")

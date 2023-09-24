@@ -47,7 +47,11 @@ android {
   }
 }
 
+apply(from = "../shared_dependencies.gradle")
+
 dependencies {
+  implementation(project(":common"))
+
   implementation(libs.androidx.ktx)
   implementation(libs.lifecycle.runtime.ktx)
   implementation(libs.androidx.activity.compose)
@@ -64,19 +68,11 @@ dependencies {
   implementation(libs.androidx.compose.material.icons)
   implementation(libs.androidx.lifecycle.viewmodel.compose)
   implementation(libs.androidx.lifecycle.runtime.compose)
-  implementation(libs.network.retrofit)
-  implementation(libs.network.moshi.kotlin)
-  implementation(libs.network.converter.moshi)
-  implementation(libs.network.okhttp)
-  implementation(libs.network.logging.interceptor)
-  implementation(libs.jackson.module.kotlin)
 
   androidTestImplementation(composeBom)
   androidTestImplementation(libs.androidx.compose.ui.test.junit)
   androidTestImplementation(libs.androidx.compose.ui.tooling)
   androidTestImplementation(libs.androidx.compose.ui.test.manifest)
 
-  testImplementation(libs.junit)
-  androidTestImplementation(libs.androidx.junit)
   androidTestImplementation(libs.androidx.espresso.core)
 }

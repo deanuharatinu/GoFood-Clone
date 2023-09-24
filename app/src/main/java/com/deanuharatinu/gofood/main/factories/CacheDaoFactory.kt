@@ -1,9 +1,9 @@
 package com.deanuharatinu.gofood.main.factories
 
 import android.content.Context
-import com.deanuharatinu.gofood.core.cache.UserAccountDao
-import com.deanuharatinu.gofood.core.cache.UserAccountDaoImpl
-import com.deanuharatinu.gofood.core.frameworks.CacheFactory
+import com.deanuharatinu.common.cache.UserAccountDaoImpl
+import com.deanuharatinu.common.cache.UserAccountDao
+import com.deanuharatinu.common.frameworks.CacheFactory
 
 class CacheDaoFactory {
   companion object {

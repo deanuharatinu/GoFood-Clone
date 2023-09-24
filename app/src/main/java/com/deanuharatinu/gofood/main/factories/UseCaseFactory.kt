@@ -1,8 +1,8 @@
 package com.deanuharatinu.gofood.main.factories
 
 import android.content.Context
-import com.deanuharatinu.gofood.core.cache.usecases.SaveUserAccountLocalUseCase
-import com.deanuharatinu.gofood.core.domain.usecases.SaveUserAccount
+import com.deanuharatinu.common.cache.usecases.SaveUserAccountLocalUseCase
+import com.deanuharatinu.common.domain.usecases.SaveUserAccount
 import com.deanuharatinu.gofood.feature.login.domain.usecases.LoginAccount
 import com.deanuharatinu.gofood.feature.login.http.usecases.LoginAccountRemoteUseCase
 import com.deanuharatinu.gofood.feature.register.domain.usecases.RegisterAccount

@@ -1,7 +1,7 @@
 package com.deanuharatinu.gofood.feature.register.domain.usecases
 
-import com.deanuharatinu.gofood.core.domain.Resource
-import com.deanuharatinu.gofood.core.domain.model.UserAccount
+import com.deanuharatinu.common.domain.Resource
+import com.deanuharatinu.common.domain.model.UserAccount
 import com.deanuharatinu.gofood.feature.register.domain.model.UserData
 
 fun interface RegisterAccount {

@@ -1,6 +1,6 @@
 package com.deanuharatinu.gofood.main.factories
 
-import com.deanuharatinu.gofood.core.domain.usecases.SaveUserAccount
+import com.deanuharatinu.common.domain.usecases.SaveUserAccount
 import com.deanuharatinu.gofood.feature.login.domain.usecases.LoginAccount
 import com.deanuharatinu.gofood.feature.register.domain.usecases.RegisterAccount
 import com.deanuharatinu.gofood.main.decorators.LoginAccountDecorator

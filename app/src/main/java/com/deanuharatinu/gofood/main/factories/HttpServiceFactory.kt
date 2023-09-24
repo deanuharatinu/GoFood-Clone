@@ -1,6 +1,6 @@
 package com.deanuharatinu.gofood.main.factories
 
-import com.deanuharatinu.gofood.core.frameworks.HttpFactory
+import com.deanuharatinu.common.frameworks.HttpFactory
 import com.deanuharatinu.gofood.feature.login.http.LoginService
 import com.deanuharatinu.gofood.feature.register.http.RegisterService
 

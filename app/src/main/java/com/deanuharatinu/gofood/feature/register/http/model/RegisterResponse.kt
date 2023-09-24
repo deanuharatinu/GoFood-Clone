@@ -1,7 +1,7 @@
 package com.deanuharatinu.gofood.feature.register.http.model
 
-import com.deanuharatinu.gofood.core.domain.model.User
-import com.deanuharatinu.gofood.core.domain.model.UserAccount
+import com.deanuharatinu.common.domain.model.User
+import com.deanuharatinu.common.domain.model.UserAccount
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 

@@ -2,7 +2,7 @@ package com.deanuharatinu.gofood.feature.login.presentation
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.deanuharatinu.gofood.core.domain.Resource
+import com.deanuharatinu.common.domain.Resource
 import com.deanuharatinu.gofood.feature.login.domain.usecases.LoginAccount
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
