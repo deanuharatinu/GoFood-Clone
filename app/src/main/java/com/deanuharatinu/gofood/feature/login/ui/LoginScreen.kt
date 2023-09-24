@@ -5,7 +5,10 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.SnackbarHost
+import androidx.compose.material3.SnackbarHostState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
@@ -29,10 +32,21 @@ fun LoginScreen(
   modifier: Modifier = Modifier,
   loginUiState: LoginViewModelState = LoginViewModelState(),
   onRegisterClick: () -> Unit,
+  snackbarHostState: SnackbarHostState = SnackbarHostState(),
   onLoginClick: (email: String, password: String) -> Unit,
 ) {
   val emailState = remember { mutableStateOf("") }
   val passwordState = remember { mutableStateOf("") }
+
+  loginUiState.isLoginSuccess?.let { isSuccess ->
+    if (!isSuccess) {
+      LaunchedEffect(snackbarHostState) {
+        snackbarHostState.showSnackbar(
+          message = loginUiState.failed,
+        )
+      }
+    }
+  }
 
   Scaffold(
     modifier = modifier,
@@ -41,6 +55,9 @@ fun LoginScreen(
         title = stringResource(id = R.string.login_title),
         subTitle = stringResource(id = R.string.login_sub_title),
       )
+    },
+    snackbarHost = {
+      SnackbarHost(hostState = snackbarHostState)
     },
   ) { innerPadding ->
     Column(modifier = Modifier.padding(innerPadding)) {
