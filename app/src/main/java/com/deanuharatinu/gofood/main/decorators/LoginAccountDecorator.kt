@@ -12,7 +12,8 @@ class LoginAccountDecorator(
   override suspend fun loginAccount(email: String, password: String): Resource<UserAccount> {
     val result = loginAccount.loginAccount(email, password)
     if (result is Resource.Success) {
-      saveUserAccount.saveUserAccount(result.data)
+      val saveResult = saveUserAccount.saveUserAccount(result.data)
+      if (!saveResult) return Resource.Error("Error save user data")
     }
     return result
   }
