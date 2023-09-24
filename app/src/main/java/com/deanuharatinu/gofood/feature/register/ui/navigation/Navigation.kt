@@ -1,35 +1,85 @@
 package com.deanuharatinu.gofood.feature.register.ui.navigation
 
+import android.content.Context
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavGraphBuilder
+import androidx.navigation.NavHostController
 import androidx.navigation.compose.composable
 import androidx.navigation.navigation
+import com.deanuharatinu.gofood.feature.register.presentation.RegisterViewModel
 import com.deanuharatinu.gofood.feature.register.ui.InputAddressScreen
 import com.deanuharatinu.gofood.feature.register.ui.RegisterScreen
+import com.deanuharatinu.gofood.main.factories.ViewModelFactory
+import com.deanuharatinu.gofood.main.factories.navigation.rememberParentViewModelStoreOwner
 
 const val REGISTER_GRAPH_ROUTE = "register-graph"
 const val REGISTER = "register"
 const val REGISTER_ADDRESS = "register/address"
 
 fun NavGraphBuilder.registerGraphRoute(
+  context: Context,
+  navHostController: NavHostController,
   onNavClick: () -> Unit,
-  onButtonClick: (String) -> Unit,
+  onRegisterClick: () -> Unit,
 ) {
   navigation(
     route = REGISTER_GRAPH_ROUTE,
     startDestination = REGISTER,
   ) {
     composable(REGISTER) {
-      RegisterScreen(
+      RegisterScreenRoot(
+        viewModel = viewModel(factory = ViewModelFactory.provideRegisterViewModel(context)),
         onNavClick = onNavClick,
-        onButtonClick = { onButtonClick(REGISTER_ADDRESS) }
+        onButtonClick = onRegisterClick
       )
     }
 
     composable(REGISTER_ADDRESS) {
-      InputAddressScreen(
+      val registerViewModel = rememberParentViewModelStoreOwner(
+        navController = navHostController,
+        parentRoute = REGISTER
+      )
+
+      InputAddressScreenRoot(
+        viewModel = viewModel(registerViewModel),
         onNavClick = onNavClick,
-        dropDownList = listOf(),
       )
     }
   }
+}
+
+@Composable
+fun RegisterScreenRoot(
+  viewModel: RegisterViewModel,
+  onNavClick: () -> Unit,
+  onButtonClick: () -> Unit,
+) {
+  val registerUiState by viewModel.uiState.collectAsStateWithLifecycle()
+
+  RegisterScreen(
+    onNavClick = onNavClick,
+    onButtonClick = { registerDataState ->
+      viewModel.updateRegisterDataState(registerDataState)
+      onButtonClick()
+    },
+    registerUiState = registerUiState,
+  )
+}
+
+@Composable
+fun InputAddressScreenRoot(
+  viewModel: RegisterViewModel,
+  onNavClick: () -> Unit,
+) {
+  val registerUiState by viewModel.uiState.collectAsStateWithLifecycle()
+
+  InputAddressScreen(
+    registerUiState = registerUiState,
+    onNavClick = onNavClick,
+    dropDownList = listOf("Jakarta", "Bandung", "Semarang", "Surabaya", "Malang"),
+    onRegisterClick = { viewModel.register(it) },
+  )
 }
