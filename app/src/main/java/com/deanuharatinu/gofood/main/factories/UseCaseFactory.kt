@@ -1,5 +1,6 @@
 package com.deanuharatinu.gofood.main.factories
 
+import android.content.Context
 import com.deanuharatinu.gofood.core.cache.usecases.SaveUserAccountLocalUseCase
 import com.deanuharatinu.gofood.core.domain.usecases.SaveUserAccount
 import com.deanuharatinu.gofood.feature.login.domain.usecases.LoginAccount
@@ -12,8 +13,9 @@ class UseCaseFactory {
       return LoginAccountRemoteUseCase(loginHttpClient)
     }
 
-    fun createSaveUserAccount(): SaveUserAccount {
-      return SaveUserAccountLocalUseCase()
+    fun createSaveUserAccount(context: Context): SaveUserAccount {
+      val userAccountDao = CacheDaoFactory.createUserAccountDao(context)
+      return SaveUserAccountLocalUseCase(userAccountDao)
     }
   }
 }
