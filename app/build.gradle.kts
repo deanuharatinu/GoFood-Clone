@@ -69,6 +69,7 @@ dependencies {
   implementation(libs.network.converter.moshi)
   implementation(libs.network.okhttp)
   implementation(libs.network.logging.interceptor)
+  implementation(libs.jackson.module.kotlin)
 
   androidTestImplementation(composeBom)
   androidTestImplementation(libs.androidx.compose.ui.test.junit)
