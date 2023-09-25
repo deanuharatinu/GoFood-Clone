@@ -51,28 +51,7 @@ apply(from = "../shared_dependencies.gradle")
 
 dependencies {
   implementation(project(":common"))
-
-  implementation(libs.androidx.ktx)
-  implementation(libs.lifecycle.runtime.ktx)
-  implementation(libs.androidx.activity.compose)
-
-  val composeBom = platform(libs.androidx.compose.bom)
-  implementation(composeBom)
-  implementation(libs.androidx.compose.ui)
-  implementation(libs.androidx.compose.ui.graphics)
-  implementation(libs.androidx.compose.ui.tooling.preview)
-  debugImplementation(libs.androidx.compose.ui.tooling)
-  implementation(libs.androidx.compose.material3)
-  implementation(libs.androidx.navigation.compose)
-  implementation(libs.androidx.navigation.runtime.ktx)
-  implementation(libs.androidx.compose.material.icons)
-  implementation(libs.androidx.lifecycle.viewmodel.compose)
-  implementation(libs.androidx.lifecycle.runtime.compose)
-
-  androidTestImplementation(composeBom)
-  androidTestImplementation(libs.androidx.compose.ui.test.junit)
-  androidTestImplementation(libs.androidx.compose.ui.tooling)
-  androidTestImplementation(libs.androidx.compose.ui.test.manifest)
-
-  androidTestImplementation(libs.androidx.espresso.core)
+  implementation(project(":ui"))
+  implementation(project(":feature:login"))
+  implementation(project(":feature:register"))
 }

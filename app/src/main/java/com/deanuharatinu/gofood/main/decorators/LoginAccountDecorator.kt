@@ -3,7 +3,7 @@ package com.deanuharatinu.gofood.main.decorators
 import com.deanuharatinu.common.domain.Resource
 import com.deanuharatinu.common.domain.model.UserAccount
 import com.deanuharatinu.common.domain.usecases.SaveUserAccount
-import com.deanuharatinu.gofood.feature.login.domain.usecases.LoginAccount
+import com.deanuharatinu.feature.login.usecases.LoginAccount
 
 class LoginAccountDecorator(
   private val loginAccount: LoginAccount,

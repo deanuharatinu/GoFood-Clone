@@ -4,8 +4,8 @@ import android.content.Context
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
-import com.deanuharatinu.gofood.feature.login.presentation.LoginViewModel
-import com.deanuharatinu.gofood.feature.register.presentation.RegisterViewModel
+import com.deanuharatinu.login.presentation.LoginViewModel
+import com.deanuharatinu.register.presentation.RegisterViewModel
 
 class ViewModelFactory {
   companion object {

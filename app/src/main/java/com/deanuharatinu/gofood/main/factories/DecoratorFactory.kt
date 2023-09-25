@@ -1,10 +1,10 @@
 package com.deanuharatinu.gofood.main.factories
 
 import com.deanuharatinu.common.domain.usecases.SaveUserAccount
-import com.deanuharatinu.gofood.feature.login.domain.usecases.LoginAccount
-import com.deanuharatinu.gofood.feature.register.domain.usecases.RegisterAccount
+import com.deanuharatinu.feature.login.usecases.LoginAccount
 import com.deanuharatinu.gofood.main.decorators.LoginAccountDecorator
 import com.deanuharatinu.gofood.main.decorators.RegisterAccountDecorator
+import com.deanuharatinu.register.domain.usecases.RegisterAccount
 
 class DecoratorFactory {
   companion object {

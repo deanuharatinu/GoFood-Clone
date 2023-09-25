@@ -36,6 +36,8 @@ coil = "2.4.0"
 room = "2.5.2"
 appcompat = "1.6.1"
 material = "1.9.0"
+androidx-appcompat-appcompat = "1.6.1"
+com-google-android-material-material = "1.9.0"
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "androidGradlePlugin" }
@@ -73,3 +75,5 @@ network-moshi-kotlin = { module = "com.squareup.moshi:moshi-kotlin", version.ref
 network-converter-moshi = { module = "com.squareup.retrofit2:converter-moshi", version.ref = "retrofit" }
 network-okhttp = { module = "com.squareup.okhttp3:okhttp" }
 network-logging-interceptor = { module = "com.squareup.okhttp3:logging-interceptor", version.ref = "loggingInterceptor" }
+appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "androidx-appcompat-appcompat" }
+material = { group = "com.google.android.material", name = "material", version.ref = "com-google-android-material-material" }
