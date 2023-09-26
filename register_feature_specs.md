@@ -104,6 +104,39 @@ Request Body
     "houseNumber": "1",
     "phoneNumber": "1"
 }
+
+Response Body
+
+- 200 Success
+
+{
+    "meta": {
+        "code": 200,
+        "status": "success",
+        "message": "User Registered"
+    },
+    "data": {
+        "access_token": "194|Gj6FjQQ8W4QcOZuWGC7W6uwXIwPhA1L7HdA488dO",
+        "token_type": "Bearer",
+        "user": {
+            "id": 98,
+            "name": "Halo123",
+            "email": "halo123@gmail.com",
+            "email_verified_at": null,
+            "roles": "USER",
+            "current_team_id": null,
+            "address": "Jalan berkah",
+            "houseNumber": "1",
+            "phoneNumber": "1",
+            "city": "Berlin",
+            "created_at": 1695532351000,
+            "updated_at": 1695532351000,
+            "profile_photo_path": null,
+            "profile_photo_url": "https://ui-avatars.com/api/?name=Halo123&color=7F9CF5&background=EBF4FF"
+        }
+    }
+}
+
 ```
 
 ### Flowchart Diagram
