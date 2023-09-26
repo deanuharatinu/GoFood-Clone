@@ -143,3 +143,4 @@ Response Body
 <img src="https://github.com/deanuharatinu/GoFood-Clone/assets/24354414/d5014e93-3e43-4ac0-b6c9-357b76aa7f14" width="500" height="700">
 
 ### Architecture Diagram
+<img src="https://github.com/deanuharatinu/GoFood-Clone/assets/24354414/62cd0a1e-24c8-49b1-9ebc-5f6ebd40bf39" width="1000" height="900">
