@@ -151,3 +151,6 @@ Response Body
 
 ### Flowchart Diagram
 <img src="https://github.com/deanuharatinu/GoFood-Clone/assets/24354414/b4ab8c2b-ba6b-4cde-9067-eb731d65b206" width="500" height="700">
+
+### Architecture Diagram
+<img src="https://github.com/deanuharatinu/GoFood-Clone/assets/24354414/faed15f6-f1be-4716-a19a-f21ea922c3aa" width="1000" height="800">
