@@ -1,4 +1,4 @@
-package com.deanuharatinu.feature.login.usecases
+package com.deanuharatinu.login.usecases
 
 import com.deanuharatinu.common.domain.Resource
 import com.deanuharatinu.common.domain.model.UserAccount

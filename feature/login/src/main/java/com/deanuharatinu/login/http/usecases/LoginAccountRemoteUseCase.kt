@@ -3,7 +3,7 @@ package com.deanuharatinu.login.http.usecases
 import com.deanuharatinu.common.domain.Resource
 import com.deanuharatinu.common.domain.model.UserAccount
 import com.deanuharatinu.common.http.HttpClientResult
-import com.deanuharatinu.feature.login.usecases.LoginAccount
+import com.deanuharatinu.login.usecases.LoginAccount
 import com.deanuharatinu.login.http.LoginHttpClient
 import com.deanuharatinu.login.http.model.LoginRequest
 import com.deanuharatinu.login.http.model.LoginResponse

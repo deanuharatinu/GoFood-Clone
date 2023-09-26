@@ -3,7 +3,7 @@ package com.deanuharatinu.gofood.main.factories
 import android.content.Context
 import com.deanuharatinu.common.cache.usecases.SaveUserAccountLocalUseCase
 import com.deanuharatinu.common.domain.usecases.SaveUserAccount
-import com.deanuharatinu.feature.login.usecases.LoginAccount
+import com.deanuharatinu.login.usecases.LoginAccount
 import com.deanuharatinu.login.http.usecases.LoginAccountRemoteUseCase
 import com.deanuharatinu.register.domain.usecases.RegisterAccount
 import com.deanuharatinu.register.http.usecases.RegisterAccountRemoteUseCase

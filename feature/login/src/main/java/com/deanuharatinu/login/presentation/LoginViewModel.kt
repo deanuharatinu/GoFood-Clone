@@ -3,7 +3,7 @@ package com.deanuharatinu.login.presentation
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.deanuharatinu.common.domain.Resource
-import com.deanuharatinu.feature.login.usecases.LoginAccount
+import com.deanuharatinu.login.usecases.LoginAccount
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
